@@ -1,0 +1,11 @@
+node_modules
+dist
+.DS_Store
+
+# lokale Claude-Tooling-Config
+.claude/
+
+# lokale Umgebungsvariablen nicht committen (siehe .env.example)
+.env
+.env.*
+!.env.example

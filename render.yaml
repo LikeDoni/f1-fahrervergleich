@@ -1,0 +1,13 @@
+# Render Blueprint: hostet den json-server als echtes REST-Backend.
+# Deploy per Klick: https://render.com/deploy?repo=https://github.com/LikeDoni/f1-fahrervergleich
+# Nach dem Deploy erreichbar unter: https://f1-fahrervergleich-api.onrender.com
+services:
+  - type: web
+    name: f1-fahrervergleich-api
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    # json-server an den von Render vorgegebenen $PORT und an 0.0.0.0 binden.
+    # @0.17.4 fest gepinnt, damit es unabhängig von NODE_ENV verfügbar ist.
+    startCommand: npx json-server@0.17.4 --watch db.json --host 0.0.0.0 --port $PORT

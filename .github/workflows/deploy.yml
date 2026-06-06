@@ -1,0 +1,64 @@
+name: Deploy Frontend to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Rechte, die der Pages-Deploy braucht.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Immer nur ein Deploy gleichzeitig.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Build-Konfiguration setzen.
+      # Standard: Demo-Modus (Daten im Browser, kein Backend nötig) -> die
+      # Live-Seite funktioniert sofort. Für das echte Render-Backend einfach
+      # Repo-Variable VITE_USE_LOCAL_DB=false setzen (und VITE_API_URL pflegen).
+      - name: Create production env
+        run: |
+          echo "VITE_USE_LOCAL_DB=${{ vars.VITE_USE_LOCAL_DB || 'true' }}" > .env.production
+          echo "VITE_API_URL=${{ vars.VITE_API_URL || 'https://f1-fahrervergleich-api.onrender.com' }}" >> .env.production
+
+      - name: Build
+        run: npm run build
+
+      # SPA-Fallback: GitHub Pages liefert 404.html bei Direktaufruf von
+      # Unterseiten – mit der gleichen App-Shell übernimmt dann React Router.
+      - name: SPA fallback
+        run: cp dist/index.html dist/404.html
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

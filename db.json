@@ -1,0 +1,26 @@
+{
+  "drivers": [
+    { "id": "1",  "name": "Kimi Antonelli",    "team": "Mercedes",     "points": 214, "status": "aktiv" },
+    { "id": "2",  "name": "George Russell",     "team": "Mercedes",     "points": 176, "status": "aktiv" },
+    { "id": "3",  "name": "Charles Leclerc",    "team": "Ferrari",      "points": 159, "status": "aktiv" },
+    { "id": "4",  "name": "Lewis Hamilton",     "team": "Ferrari",      "points": 148, "status": "aktiv" },
+    { "id": "5",  "name": "Lando Norris",       "team": "McLaren",      "points": 137, "status": "aktiv" },
+    { "id": "6",  "name": "Oscar Piastri",      "team": "McLaren",      "points": 121, "status": "aktiv" },
+    { "id": "7",  "name": "Max Verstappen",     "team": "Red Bull",     "points": 109, "status": "aktiv" },
+    { "id": "8",  "name": "Pierre Gasly",       "team": "Alpine",       "points": 64,  "status": "aktiv" },
+    { "id": "9",  "name": "Oliver Bearman",     "team": "Haas",         "points": 57,  "status": "aktiv" },
+    { "id": "10", "name": "Liam Lawson",        "team": "Racing Bulls", "points": 49,  "status": "aktiv" },
+    { "id": "11", "name": "Franco Colapinto",   "team": "Alpine",       "points": 43,  "status": "aktiv" },
+    { "id": "12", "name": "Isack Hadjar",       "team": "Red Bull",     "points": 38,  "status": "aktiv" },
+    { "id": "13", "name": "Carlos Sainz",       "team": "Williams",     "points": 31,  "status": "aktiv" },
+    { "id": "14", "name": "Arvid Lindblad",     "team": "Racing Bulls", "points": 24,  "status": "aktiv" },
+    { "id": "15", "name": "Gabriel Bortoleto",  "team": "Audi",         "points": 19,  "status": "aktiv" },
+    { "id": "16", "name": "Esteban Ocon",       "team": "Haas",         "points": 16,  "status": "aktiv" },
+    { "id": "17", "name": "Alexander Albon",    "team": "Williams",     "points": 13,  "status": "aktiv" },
+    { "id": "18", "name": "Nico Hülkenberg",    "team": "Audi",         "points": 11,  "status": "aktiv" },
+    { "id": "19", "name": "Valtteri Bottas",    "team": "Cadillac",     "points": 8,   "status": "aktiv" },
+    { "id": "20", "name": "Sergio Pérez",       "team": "Cadillac",     "points": 6,   "status": "aktiv" },
+    { "id": "21", "name": "Lance Stroll",       "team": "Aston Martin", "points": 4,   "status": "aktiv" },
+    { "id": "22", "name": "Fernando Alonso",    "team": "Aston Martin", "points": 2,   "status": "aktiv" }
+  ]
+}
